@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agendar Citas</title>
+  <link rel="stylesheet" href="stilo.css" />
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body>
+  
+    
+    <header>
+        <div> <img src="img/logo.jpg" class="logo" alt="Logo"></div>
+        
+        <div class="rigth-section">
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Marketplace</a></li>
+                    <li><a href="#">Pendientes</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        
+        <div class="avatar-container">
+            <input type="checkbox" id="avatar-toggle">
+            <label for="avatar-toggle">
+                <img src="img/iconoEmprendor.jpg" class="avatar" alt="Avatar">
+            </label>
+            
+            <div class="dropdown-menu">
+                <h2 class="user-name">Nombre ✏️</h2>
+                
+                <a href="#" class="menu-btn">Vincular negocio</a>
+                <a href="#" class="menu-btn">Favoritos</a>
+                <a href="#" class="menu-btn">Agendar citas</a>
+                <a href="#" class="menu-btn logout">Cerrar sesión</a>
+            </div>
+        </div>
+    </header>
+
+
+  
+  <main class="page">
+    <div class="container">
+     
+      <section class="calendar-card" aria-label="Calendario de citas">
+        <div class="calendar-inner">
+          <div class="calendar-header">
+            <button id="prev-month" class="month-btn" aria-label="Mes anterior">&lt;</button>
+            <h3 id="month-title" class="month-title" aria-live="polite">Enero 2025</h3>
+            <button id="next-month" class="month-btn" aria-label="Mes siguiente">&gt;</button>
+          </div>
+
+          
+          <div class="calendar-box">
+            <div class="weekday-row" aria-hidden="true">
+              <div>lu</div><div>ma</div><div>mi</div><div>ju</div><div>vi</div><div>sa</div><div>do</div>
+            </div>
+
+            <div id="days-grid" class="days-grid" role="grid" aria-label="Días del mes">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <aside class="users-panel">
+        <form id="assign-form" class="users-form" novalidate>
+          <label class="user-row">
+            <img src="img/iconoEmprendor.jpg" alt="" class="user-icon" />
+            <input type="text" name="nombre1" class="user-input" placeholder="Negocio" aria-label="Nombre usuario 1" required />
+          </label>
+
+          <label class="user-row">
+            <img src="img/iconoEmprendor.jpg" alt="" class="user-icon" />
+            <input type="text" name="nombre2" class="user-input" placeholder="Negocio" aria-label="Nombre usuario 2" required />
+          </label>
+
+          <label class="user-row">
+            <img src="img/iconoEmprendor.jpg" alt="" class="user-icon" />
+            <input type="text" name="nombre3" class="user-input" placeholder="Negocio" aria-label="Nombre usuario 3" required />
+          </label>
+
+          <button id="assign-btn" class="assign-btn" type="submit">Agendar cita</button>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  
+    <footer class="footer">
+        <div class="links">
+            <a href="#">Términos y condiciones</a>
+            <a href="#">Trabaja con nosotros</a>
+            <a href="#">Promociones</a>
+            <a href="#">Ayuda</a>
+        </div>
+        
+        <div class="store">
+            <img src="img/iconoEmprendor.jpg" alt="Google Play">
+        </div>
+        
+        <div class="social">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook">
+            <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        </div>
+    </footer>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
