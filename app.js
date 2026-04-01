@@ -1,5 +1,3 @@
-
-
 (function () {
   
   const monthTitleEl = document.getElementById('month-title');
@@ -35,6 +33,7 @@
 
     const first = new Date(year, month, 1).getDay(); 
     const offset = (first + 6) % 7; 
+
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
     for (let i = 0; i < offset; i++) {
@@ -109,16 +108,18 @@
     renderCalendar(currentYear, currentMonth);
   });
 
-  
+
   renderCalendar(currentYear, currentMonth);
 
-  
+
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('assign-form');
     const inputs = Array.from(form.querySelectorAll('input.user-input'));
     const btn = document.getElementById('assign-btn');
 
-    
+
+    const originalText = btn.innerHTML;
+
     inputs.forEach((input, idx) => {
       input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
@@ -157,20 +158,28 @@
       }
 
       btn.disabled = true;
-      btn.classList.add('assigned');
+      btn.classList.remove('assigned');
+      btn.innerHTML = 'Agendando cita...';
 
-      btn.innerHTML = 'Asignado <i class="fa-solid fa-check" aria-hidden="true"></i>';
-
-
-      const nombres = inputs.map(i => i.value.trim());
-      const fechasSeleccionadas = Array.from(selectedSet); 
-      console.log('Asignando cita — nombres:', nombres, 'fechas:', fechasSeleccionadas);
 
       setTimeout(() => {
-        btn.disabled = false;
-        btn.classList.remove('assigned');
-        btn.innerHTML = 'Asignar cita';
-      }, 1400);
+        
+        btn.classList.add('assigned');
+        btn.innerHTML = 'Cita agendada <i class="fa-solid fa-check" aria-hidden="true"></i>';
+
+        
+        const nombres = inputs.map(i => i.value.trim());
+        const fechasSeleccionadas = Array.from(selectedSet); 
+        console.log('Asignación completada — nombres:', nombres, 'fechas:', fechasSeleccionadas);
+
+        
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.classList.remove('assigned');
+          btn.innerHTML = originalText;
+        }, 1400);
+
+      }, 900); 
     });
   });
 
